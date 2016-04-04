@@ -1,10 +1,11 @@
 require "./lib/transactions"
+require "./lib/statement"
 
 class Account
 
-  def initialize(transactions:, statement:)
+  def initialize(transactions: nil, statement: nil)
     @transactions = transactions || Transactions.new
-    @statement = statement || Statement.new
+    @statement = statement || Statement
   end
 
   def deposit(amount, date = Date.today)
@@ -16,7 +17,8 @@ class Account
   end
 
   def print_statement(output = STDOUT)
-    output.puts(statement.new(transactions.all))
+    printed_statement = statement.new(transactions.all).to_s
+    output.puts(printed_statement)
   end
 
   private

@@ -1,32 +1,31 @@
+require "./lib/transaction_presenter"
+
 class Statement
-  def initialize(transactions)
-    @transactions = transactions
+
+  HEADER = "date || credit || debit || balance\n"
+
+  def initialize(transactions, presenter: TransactionPresenter)
+    @transactions = parse(transactions, presenter)
   end
 
   def to_s
-    balance = 0
-
-    statement_lines = transactions.map do |transaction|
-      balance += transaction.total
-
-      "#{format_date(transaction.date)} || #{format_number(transaction.credit)} || #{format_number(transaction.debit)} || #{format_number(balance)}\n"
-    end
-
-    result = "date || credit || debit || balance\n"
-    result += statement_lines.reverse.join("")
+    HEADER + statement_lines.join("")
   end
 
   private
 
   attr_reader :transactions
 
-  def format_date(date)
-    date.strftime("%d/%m/%Y")
+  def parse(transactions, presenter)
+    balance = 0
+    transactions.map do |transaction|
+      presenter.new(transaction, balance += transaction.total)
+    end
   end
 
-  def format_number(number)
-    return "" if number == 0
-    '%.2f' % number
+  def statement_lines
+    transactions.reverse.map do |transaction|
+      "#{transaction.date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}\n"
+    end
   end
-
 end

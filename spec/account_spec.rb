@@ -26,6 +26,6 @@ RSpec.describe Account do
 
     account.print_statement(output)
 
-    expect(output).to have_received(:puts).with(:statement)
+    expect(output).to have_received(:puts).with("statement")
   end
 end
