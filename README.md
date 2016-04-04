@@ -1,5 +1,19 @@
 # The Bank Tech Test
 
+Check the commit log for this, I've heavily annotated each commit to explain
+what I've been doing as I've cleaned up the code.
+
+### Resources
+
+This solution was influenced by those done by [Sandro
+Mancuso](https://github.com/sandromancuso) in Java:
+
+* [Bank Kata walkthrough - part 1](https://www.youtube.com/watch?v=XHnuMjah6ps)
+* [Bank Kata walkthrough - part 2](https://www.youtube.com/watch?v=gs0rqDdz3ko)
+* [Bank Kata walkthrough - part 3](https://www.youtube.com/watch?v=R9OAt9AOrzI)
+* [Code for a slightly different version by
+  Sandro](https://github.com/sandromancuso/Bank-kata)
+
 >When in doubt, go for the simplest solution
 
 ### Requirements

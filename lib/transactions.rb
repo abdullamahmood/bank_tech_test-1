@@ -1,12 +1,15 @@
 require "./lib/transaction"
 
 class Transactions
-
-  attr_reader :all
+  include Enumerable
 
   def initialize(transaction = Transaction)
     @all = []
     @transaction = transaction
+  end
+
+  def each(&block)
+    all.each(&block)
   end
 
   def deposit(credit, date)
@@ -19,5 +22,5 @@ class Transactions
 
   private
 
-  attr_reader :transaction
+  attr_reader :transaction, :all
 end

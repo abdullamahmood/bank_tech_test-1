@@ -20,8 +20,7 @@ RSpec.describe Account do
   end
 
   it "submits a statement" do
-    allow(transactions).to receive(:all).and_return(:transactions)
-    allow(statement).to receive(:new).with(:transactions).and_return(:statement)
+    allow(statement).to receive(:new).with(transactions).and_return(:statement)
     output = spy(:output)
 
     account.print_statement(output)

@@ -17,7 +17,7 @@ class Account
   end
 
   def print_statement(output = STDOUT)
-    printed_statement = statement.new(transactions.all)
+    printed_statement = statement.new(transactions)
     output.puts(printed_statement.to_s)
   end
 

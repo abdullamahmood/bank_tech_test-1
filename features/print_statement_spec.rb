@@ -11,8 +11,8 @@ RSpec.describe "Printing a statement", feature: true do
     account.deposit(1000, Date.parse("10-01-2012"))
     account.deposit(2000, Date.parse("13-01-2012"))
     account.withdraw(500, Date.parse("14-01-2012"))
-    output = spy(:output)
 
+    output = spy(:output)
     account.print_statement(output)
 
     expect(output).to have_received(:puts).with(statement)
