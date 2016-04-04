@@ -1,7 +1,7 @@
 require "account"
 require "date"
 
-Rspec.feature "Printing a statement", type: :feature  do
+RSpec.feature "Printing a statement", type: :feature  do
 
   subject(:account) { Account.new }
 

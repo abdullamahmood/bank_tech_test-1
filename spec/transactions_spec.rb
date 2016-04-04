@@ -1,6 +1,6 @@
 require "transactions"
 
-describe Transactions do
+RSpec.describe Transactions do
   subject(:transactions) { Transactions.new }
 
   let(:today) { Date.parse("11-01-2016") }

@@ -1,6 +1,6 @@
 require "transaction"
 
-describe Transaction do
+RSpec.describe Transaction do
   subject(:transaction) { Transaction.new(debit: 1000, credit: 250, date: Date.today) }
 
   it "is the same as other transactions with the same total and date" do
