@@ -17,12 +17,11 @@ class Account
   end
 
   def print_statement(output = STDOUT)
-    printed_statement = statement.new(transactions.all).to_s
-    output.puts(printed_statement)
+    printed_statement = statement.new(transactions.all)
+    output.puts(printed_statement.to_s)
   end
 
   private
 
   attr_reader :transactions, :statement
-
 end

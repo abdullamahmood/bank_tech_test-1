@@ -5,7 +5,7 @@ RSpec.describe "Printing a statement", feature: true do
 
   subject(:account) { Account.new }
 
-  let(:statement) { File.read("spec/support/statement.txt") }
+  let(:statement) { File.read("spec/support/statement.txt").strip }
 
   it "customer prints a statement of deposits and withdrawals" do
     account.deposit(1000, Date.parse("10-01-2012"))

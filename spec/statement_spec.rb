@@ -2,7 +2,7 @@ require "statement"
 
 RSpec.describe Statement do
 
-  let(:expected_statement) { File.read("spec/support/statement.txt") }
+  let(:expected_statement) { File.read("spec/support/statement.txt").strip }
   let(:presenter_class) { class_spy("TransactionPresenter") }
 
   let(:presenter1) { presenter(credit: "1000.00", debit: nil, balance: "1000.00", date: "10/01/2012") }
